@@ -484,3 +484,21 @@ button{
     padding: 15px;
   }
 }
+
+.add-counter-btn{
+  background: none;
+  border: none;
+  background-color: beige;
+  padding: 10px 20px;
+  font: var(--title-sm);
+  border-radius: var(--border-narrow);
+  box-shadow: var(--shadow-light);
+  width: 60%;
+  margin-bottom: 50px;
+}
+
+.add-counter-btn:hover{
+  box-shadow: var(--shadow-normal);
+  background-color: var(--red-7);
+  color: beige;
+}

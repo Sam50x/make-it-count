@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { incrementCount, decrementCount, resetCount, breakCount } from '../features/counterSlice'
+import { incrementCount, decrementCount, resetCount, breakCount, changeCounterName, addNewCounter } from '../features/counterSlice'
 
 const Counter = () => {
 
@@ -11,7 +11,11 @@ const Counter = () => {
 
         return (
             <div className='counter' key={id}>
-                <input type="text" value={name} />
+                <input type="text" value={name} 
+                    onChange={() =>{
+                        dispatch(changeCounterName(id))
+                    }}
+                />
                 <h1 className='count'>{count}</h1>
                 <div className='btn-container'>
                     <button
@@ -56,6 +60,7 @@ const Counter = () => {
             <div className='counters'>
                 {counterItems}
             </div>
+            <button className='add-counter-btn' onClick={() => dispatch(addNewCounter())}>Add another Counter</button>
         </div>
     )
 }
