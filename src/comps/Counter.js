@@ -1,8 +1,10 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { incrementCount, decrementCount, resetCount, breakCount } from '../features/counterSlice'
 
 const Counter = () => {
 
     const counters = useSelector(store => store.counter)
+    const dispatch = useDispatch()
 
     const counterItems = counters.map(counter => {
         const { id, name, count, breaks } = counter
@@ -12,17 +14,29 @@ const Counter = () => {
                 <input type="text" value={name} />
                 <h1 className='count'>{count}</h1>
                 <div className='btn-container'>
-                    <button>
+                    <button
+                        onClick={() => {
+                            if (count > 0) {
+                                dispatch(decrementCount(id))
+                            }
+                        }}
+                    >
                         -
                     </button>
-                    <button>
+                    <button
+                        onClick={() => dispatch(incrementCount(id))}
+                    >
                         +
                     </button>
                 </div>
-                <button>
+                <button
+                    onClick={() => dispatch(resetCount(id))}
+                >
                     Reset
                 </button>
-                <button>
+                <button
+                    onClick={() => dispatch(breakCount(id))}
+                >
                     Take a Break
                 </button>
                 <div className='breaks'>

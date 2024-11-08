@@ -426,11 +426,12 @@ button{
 }
 
 .counter .count{
-  padding: 20px 30%;
+  padding: 20px 0;
   border-radius: var(--border-normal);
   background-color: beige;
   font-size: 4.2rem;
   text-align: center;
+  width: 100%;
 }
 
 .counter .btn-container{
