@@ -502,3 +502,15 @@ button{
   background-color: var(--red-7);
   color: beige;
 }
+
+.trash{
+  color: beige;
+  cursor: pointer;
+  text-align: end;
+  width: 100%;
+  margin: 5px 20px;
+}
+
+.trash:hover{
+  color: var(--red-5)
+}

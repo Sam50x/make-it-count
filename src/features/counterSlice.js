@@ -48,11 +48,16 @@ const counterSlice = createSlice({
                 breaks: [],
                 lastBreakedCount: 0,
             })
-        }
+        },
+        deleteCounter: (state, action) =>{
+            const newState = state.filter(counter => counter.id !== action.payload)
+
+            return newState
+        },
     }
 })
 
 
 
-export const { incrementCount, decrementCount, resetCount, breakCount, changeCounterName, addNewCounter } = counterSlice.actions
+export const { incrementCount, decrementCount, resetCount, breakCount, changeCounterName, addNewCounter, deleteCounter } = counterSlice.actions
 export default counterSlice.reducer
