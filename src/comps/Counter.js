@@ -18,11 +18,13 @@ const Counter = () => {
                     <button>
                         +
                     </button>
-                    <button>
-                        Reset
-                    </button>
                 </div>
-                <button>Take a Break</button>
+                <button>
+                    Reset
+                </button>
+                <button>
+                    Take a Break
+                </button>
                 <div className='breaks'>
                     {breaks.map(item => {
                         return (

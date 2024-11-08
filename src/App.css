@@ -351,6 +351,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .counters{
@@ -363,6 +364,9 @@
 
 body{
   background-color: rgba(0, 0, 0, 0.95);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .header{
@@ -373,7 +377,6 @@ body{
   box-shadow: var(--shadow-normal);
   padding: 20px 50px;
   border-radius: var(--border-wide);
-  width: min(80%, 400px);
 }
 
 .counter{
@@ -388,6 +391,7 @@ body{
   border-radius: var(--border-normal);
   margin: 30px;
   width: min(80%, 300px);
+  max-width: 100%;
 }
 
 .counter:hover{
@@ -406,6 +410,8 @@ button{
   font-weight: bold;
   color: beige;
   border-radius: var(--border-normal);
+  width: 100%;
+  margin-bottom: 5px;
 }
 
 .counter input:focus{
@@ -416,6 +422,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .counter .count{
@@ -439,10 +446,17 @@ button{
   background: none;
   border: none;
   background-color: beige;
-  padding: 5px 10px;
+  padding: 10px 20px;
   font: var(--title-sm);
   border-radius: var(--border-narrow);
-  box-shadow: var(--shadow-light)
+  box-shadow: var(--shadow-light);
+  width: 100%;
+}
+
+.counter button:hover{
+  box-shadow: var(--shadow-normal);
+  background-color: var(--red-7);
+  color: beige;
 }
 
 .breaks{
@@ -457,4 +471,15 @@ button{
   font: var(--body-lg);
   text-align: center;
   margin: 2px 0;
+}
+
+@media (max-width: 600px) {
+  .header {
+    margin: 20px 0;
+    padding: 15px 30px;
+  }
+  .counter {
+    margin: 20px;
+    padding: 15px;
+  }
 }
