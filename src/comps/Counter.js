@@ -73,7 +73,7 @@ const Counter = () => {
 
         dispatch(calculateTotal())
         
-    }, [counters])
+    }, [counters, dispatch])
 
     return (
         <div className='container all-in'>
