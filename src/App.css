@@ -373,6 +373,7 @@ body{
   box-shadow: var(--shadow-normal);
   padding: 20px 50px;
   border-radius: var(--border-wide);
+  width: min(80%, 400px);
 }
 
 .counter{
