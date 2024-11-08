@@ -362,12 +362,12 @@
 }
 
 body{
-  background-color: var(--grey-8);
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 .header{
-  background-color: var(--grey-4);
-  color: white;
+  background-color: var(--grey-7);
+  color: beige;
   margin: 50px 0;
   text-align: center;
   box-shadow: var(--shadow-normal);
@@ -381,10 +381,12 @@ body{
   gap: 10px;
   justify-content: center;
   align-items: center;
-  background-color: var(--grey-4);
+  background-color: var(--grey-7);
   padding: 20px 50px;
   box-shadow: var(--shadow-light);
   border-radius: var(--border-normal);
+  margin: 30px;
+  width: min(80%, 300px);
 }
 
 .counter:hover{
@@ -401,4 +403,57 @@ button{
   text-align: center;
   font: var(--headline-sm);
   font-weight: bold;
+  color: beige;
+  border-radius: var(--border-normal);
+}
+
+.counter input:focus{
+  background-color: var(--red-7);
+}
+
+.counters{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter .count{
+  padding: 20px 30%;
+  border-radius: var(--border-normal);
+  background-color: beige;
+  font-size: 4.2rem;
+  text-align: center;
+}
+
+.counter .btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  gap: 10px;
+  width: 100%;
+}
+
+.counter button{
+  background: none;
+  border: none;
+  background-color: beige;
+  padding: 5px 10px;
+  font: var(--title-sm);
+  border-radius: var(--border-narrow);
+  box-shadow: var(--shadow-light)
+}
+
+.breaks{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.breaks p{
+  color: beige;
+  font: var(--body-lg);
+  text-align: center;
+  margin: 2px 0;
 }
