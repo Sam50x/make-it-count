@@ -8,6 +8,7 @@ const initialState = [
         count: 0,
         breaks: [],
         lastBreakedCount: 0,
+        total: 0,
     },
 ]
 
@@ -54,10 +55,19 @@ const counterSlice = createSlice({
 
             return newState
         },
+        calculateTotal: (state) =>{
+            let total = 0
+
+            state.forEach(counter =>{
+                total += counter.count
+            })
+
+            state[0].total = total
+        }
     }
 })
 
 
 
-export const { incrementCount, decrementCount, resetCount, breakCount, changeCounterName, addNewCounter, deleteCounter } = counterSlice.actions
+export const { incrementCount, decrementCount, resetCount, breakCount, changeCounterName, addNewCounter, deleteCounter, calculateTotal } = counterSlice.actions
 export default counterSlice.reducer
