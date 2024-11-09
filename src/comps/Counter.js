@@ -9,6 +9,37 @@ const Counter = () => {
     const dispatch = useDispatch()
     const [message, setMessage] = useState('Add another Counter')
 
+
+    const handleIncrement = (id) => {
+        dispatch(incrementCount(id))
+    }
+
+    const handleDecrement = (id, count) => {
+        if (count > 0) {
+            dispatch(decrementCount(id))
+        }
+    }
+
+    const handleReset = (id) => {
+        dispatch(resetCount(id))
+    }
+
+    const handleNewBreak = (id) => {
+        dispatch(breakCount(id))
+    }
+
+    const handleNewCounter = () => {
+        dispatch(addNewCounter())
+    }
+
+    const handleDeleteCounter = (id) => {
+        dispatch(deleteCounter(id))
+    }
+
+    const handleNameChange = ({ id, newName }) => {
+        dispatch(changeCounterName({ id, newName }))
+    }
+
     const counterItems = counters.map(counter => {
         const { id, name, count, breaks } = counter
 
@@ -17,45 +48,39 @@ const Counter = () => {
                 <p
                     className='trash'
                     onClick={() => {
-                        dispatch(deleteCounter(id))
+                        handleDeleteCounter(id)
                     }}
                 ><FaTimes /></p>
                 <input type="text" value={name}
-                    onChange={() => {
-                        dispatch(changeCounterName(id))
-                    }}
+                    onChange={(e) => handleNameChange({ id, newName: e.target.value })}
                 />
                 <h1 className='count'>{count}</h1>
                 <div className='btn-container'>
                     <button
-                        onClick={() => {
-                            if (count > 0) {
-                                dispatch(decrementCount(id))
-                            }
-                        }}
+                        onClick={() => handleDecrement(id, count)}
                     >
                         -
                     </button>
                     <button
-                        onClick={() => dispatch(incrementCount(id))}
+                        onClick={() => handleIncrement(id)}
                     >
                         +
                     </button>
                 </div>
                 <button
-                    onClick={() => dispatch(resetCount(id))}
+                    onClick={() => handleReset(id)}
                 >
                     Reset
                 </button>
                 <button
-                    onClick={() => dispatch(breakCount(id))}
+                    onClick={() => handleNewBreak(id)}
                 >
                     Take a Break
                 </button>
                 <div className='breaks'>
-                    {breaks.map(item => {
+                    {breaks.map((item, index) => {
                         return (
-                            <p>{item}</p>
+                            <p key={index}>{item}</p>
                         )
                     })}
                 </div>
@@ -89,7 +114,7 @@ const Counter = () => {
                     </div>
                 }
             </div>
-            <button className='add-counter-btn' onClick={() => dispatch(addNewCounter())}>{message}</button>
+            <button className='add-counter-btn' onClick={handleNewCounter}>{message}</button>
         </div>
     )
 }

@@ -37,9 +37,15 @@ const counterSlice = createSlice({
             }
         },
         changeCounterName: (state, action) => {
-            const counter = state.find(counter => counter.id === action.payload)
+            const { id, newName } = action.payload
+            const counter = state.find(counter => counter.id === id)
 
-            counter.name = action.payload.value
+            if (newName !== '') {
+                counter.name = newName
+            }
+            else{
+                counter.name = `Counter ${state.length}`
+            }
         },
         addNewCounter: (state) => {
             state.push({
@@ -50,15 +56,15 @@ const counterSlice = createSlice({
                 lastBreakedCount: 0,
             })
         },
-        deleteCounter: (state, action) =>{
+        deleteCounter: (state, action) => {
             const newState = state.filter(counter => counter.id !== action.payload)
 
             return newState
         },
-        calculateTotal: (state) =>{
+        calculateTotal: (state) => {
             let total = 0
 
-            state.forEach(counter =>{
+            state.forEach(counter => {
                 total += counter.count
             })
 
