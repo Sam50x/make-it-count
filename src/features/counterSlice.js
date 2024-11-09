@@ -40,12 +40,7 @@ const counterSlice = createSlice({
             const { id, newName } = action.payload
             const counter = state.find(counter => counter.id === id)
 
-            if (newName !== '') {
-                counter.name = newName
-            }
-            else{
-                counter.name = `Counter ${state.length}`
-            }
+            counter.name = newName
         },
         addNewCounter: (state) => {
             state.push({

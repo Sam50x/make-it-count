@@ -52,6 +52,7 @@ const Counter = () => {
                     }}
                 ><FaTimes /></p>
                 <input type="text" value={name}
+                    placeholder='Counter Name'
                     onChange={(e) => handleNameChange({ id, newName: e.target.value })}
                 />
                 <h1 className='count'>{count}</h1>
