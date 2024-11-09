@@ -71,8 +71,10 @@ const Counter = () => {
             setMessage('Add another Counter')
         }
 
-        dispatch(calculateTotal())
-        
+        if (counters.length > 0) {
+            dispatch(calculateTotal())
+        }
+
     }, [counters, dispatch])
 
     return (
@@ -82,7 +84,7 @@ const Counter = () => {
                 {counterItems}
                 {counters.length > 1 &&
                     <div className='counter'>
-                        <input type="text" value='Total'/>
+                        <input type="text" value='Total' />
                         <h1 className='count'>{counters[0].total}</h1>
                     </div>
                 }
