@@ -27,6 +27,7 @@ const counterSlice = createSlice({
             if (counter) {
                 counter.count = 0
                 counter.breaks = []
+                counter.lastBreakedCount = 0
             }
         },
         breakCount: (state, action) => {
